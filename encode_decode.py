@@ -1,5 +1,6 @@
 sent = 1
 
+
 def encode(password):
     encoded_pass = ""
     for digit in password:
@@ -10,8 +11,18 @@ def encode(password):
         encoded_pass = encoded_pass + str(enc_digit)
     return encoded_pass
 
+
+# Decode a password
+# Anthony Thisse
 def decode(password):
-    print(password)
+    decoded_pass = ""
+    # For each digit in the encoded password
+    for digit in password:
+        # Shift up by 7 to get back to the base value, % by 10 to strip 10's digit and append to decoded_pass
+        decoded_pass += str((int(digit) + 7) % 10)
+    # Return the decoded password
+    return decoded_pass
+
 
 if __name__ == '__main__':
     while sent != 0:
