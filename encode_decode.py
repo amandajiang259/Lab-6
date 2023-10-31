@@ -3,12 +3,16 @@ sent = 1
 
 def encode(password):
     encoded_pass = ""
+    # For each digit in the inputted password
     for digit in password:
+        # Increment the number by 3
         enc_digit = int(digit) + 3
         if enc_digit > 9:
+            # if the number is more than ten, then cut off the tens place, keeping value in ones place
             str_enc = str(enc_digit)
             enc_digit = str_enc[-1]
         encoded_pass = encoded_pass + str(enc_digit)
+    # Return encoded password
     return encoded_pass
 
 
@@ -26,6 +30,7 @@ def decode(password):
 
 if __name__ == '__main__':
     while sent != 0:
+        #Menu added
         print("Menu Options:")
         print("1) Encode")
         print("2) Decode")
