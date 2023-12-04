@@ -22,27 +22,29 @@ def decode(password):
     decoded_pass = ""
     # For each digit in the encoded password
     for digit in password:
-        # Shift up by 7 to get back to the base value, % by 10 to strip 10's digit and append to decoded_pass
+        # Shift up by 7 to get back to the base value, % by 10 to strip 10's digit and append to
+        # decoded_pass
         decoded_pass += str((int(digit) + 7) % 10)
     # Return the decoded password
     return decoded_pass
 
 
 if __name__ == '__main__':
+    password = ""
     while sent != 0:
         #Menu added
-        print("Menu Options:")
-        print("1) Encode")
-        print("2) Decode")
-        print("3) Exit")
-        option = int(input("Choice: "))
+        print("Menu")
+        print("-" * 13)
+        print("1. Encode")
+        print("2. Decode")
+        print("3. Exit\n")
+        option = int(input("Please enter an option: "))
 
         if option == 1:
-            password = input("Enter 8-digit password to encode: ")
-            print(encode(password))
+            password = input("Please enter your password to encode: ")
+            print("Your password has been encoded and stored!\n")
         elif option == 2:
-            dec_password = input("Enter 8-digit password to decode: ")
-            print(decode(dec_password))
+            print(f"The encoded password is {encode(password)}, and the original password is {decode(encode(password))}\n")
         else:
             sent = 0
             break
